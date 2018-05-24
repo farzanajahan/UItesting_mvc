@@ -30,18 +30,15 @@ namespace UI_Mvc
             driver.FindElementByName("password").Clear();
             driver.FindElementByName("password").SendKeys("123");
 
-
-            driver.FindElementByXPath("/html/body/div/form/input[3]").Click();
+            driver.FindElementByXPath("//input[@type='submit']").Click();
+            //driver.FindElementByXPath("/html/body/div/form/input[3]").Click();
             Console.WriteLine("Test");
             System.Threading.Thread.Sleep(5000);
 
 
-
-            // String text= driver.FindElementByXPath("/html/body/div").Text;
-            // Assert.IsTrue(text.Contains("Status: Authenticated"));
-
-            String header = driver.FindElementByXPath("html/body/header/div/h1").Text;
-            Assert.IsTrue(header.Contains("USF Health Global Departments"));
+            String header = driver.FindElementByXPath("//header[@id='dept-header']").Text;
+            
+            Assert.IsTrue(header.Contains("USF Health\r\nUSF GLOBAL DEPARTMENTS"));
 
                driver.FindElementById("toggle").Click();
             System.Threading.Thread.Sleep(5000);
